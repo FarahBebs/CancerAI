@@ -1,0 +1,7 @@
+# Proposal paragraph (draft)
+
+For the 25 November topic announcement. Add teammate names before submitting.
+
+**Title:** CancerAI: A Comparative Study of Deep Learning Strategies for Multi-Modal Medical Image Classification
+
+This project studies how training strategy and data augmentation change classification performance across four medical image types: brain MRI, breast histopathology, skin lesions, and lung CT. Each modality is its own task. The labels are tumour and lesion categories, not a single cancer / no-cancer decision. For every dataset the study compares a small CNN trained from scratch, an ImageNet ResNet18 with a frozen backbone, and a fully fine-tuned ResNet18. The fine-tuned model is trained once with augmentation and once without it. Validation and test images are never augmented. The split stays fixed across models. BreakHis is split by patient. DermaMNIST keeps its official split. Brain MRI and lung CT filenames do not contain a patient or scan id, so those two results will not be reported as patient-level generalisation. The primary metric is macro-F1, with accuracy, precision, recall, confusion matrices, and runtime. Every configuration is repeated with seeds 42, 123, and 2026 and reported as mean ± standard deviation. Hypotheses: fine-tuning beats the custom CNN and the frozen ResNet18; augmentation helps most where a class is rare; the gain depends on the modality; accuracy hides minority-class errors. The demonstration is a Gradio page that shows the category and a Grad-CAM map. It is a course project, not a clinical device.

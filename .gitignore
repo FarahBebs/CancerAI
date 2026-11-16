@@ -1,0 +1,24 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Local datasets and ImageNet weight cache. Do not commit medical images.
+data/**
+!data/README.md
+
+# Trained weights
+models/*.pt
+models/*.json
+
+# Run outputs that are large or machine-specific
+results/checkpoints/
+results/smoke/
+results/plots/
+results/gradcam/
+results/metrics/
+results/mpl/
+
+# Held-out preview images exported from the datasets
+examples/

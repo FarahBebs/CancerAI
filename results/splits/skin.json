@@ -1,0 +1,53 @@
+{
+  "dataset": "skin",
+  "split_seed": null,
+  "grouping": "official_medmnist",
+  "patient_independent": false,
+  "leakage_note": "The official MedMNIST train, validation, and test arrays are kept as published. They were not reshuffled. DermaMNIST does not ship HAM10000 lesion_id, so images of the same lesion may cross the split. Lesion-level independence could not be verified.",
+  "classes": [
+    "actinic keratoses and intraepithelial carcinoma",
+    "basal cell carcinoma",
+    "benign keratosis-like lesions",
+    "dermatofibroma",
+    "melanoma",
+    "melanocytic nevi",
+    "vascular lesions"
+  ],
+  "counts": {
+    "train": {
+      "actinic keratoses and intraepithelial carcinoma": 228,
+      "basal cell carcinoma": 359,
+      "benign keratosis-like lesions": 769,
+      "dermatofibroma": 80,
+      "melanoma": 779,
+      "melanocytic nevi": 4693,
+      "vascular lesions": 99
+    },
+    "val": {
+      "actinic keratoses and intraepithelial carcinoma": 33,
+      "basal cell carcinoma": 52,
+      "benign keratosis-like lesions": 110,
+      "dermatofibroma": 12,
+      "melanoma": 111,
+      "melanocytic nevi": 671,
+      "vascular lesions": 14
+    },
+    "test": {
+      "actinic keratoses and intraepithelial carcinoma": 66,
+      "basal cell carcinoma": 103,
+      "benign keratosis-like lesions": 220,
+      "dermatofibroma": 23,
+      "melanoma": 223,
+      "melanocytic nevi": 1341,
+      "vascular lesions": 29
+    }
+  },
+  "label_sha256": {
+    "train": "49eaf45cb52872a82024e1c5587186c9f3b7ce150f18f0e3f1b49e97ca6d077d",
+    "val": "1b173d696f44698c7677f72ac164d85158952604b22187778a8cd620a67caf15",
+    "test": "b42481cd36b554c0f6031a9e141a46aaeab879b7a0e38e4d5e58023ff71cbb16"
+  },
+  "train": [],
+  "val": [],
+  "test": []
+}

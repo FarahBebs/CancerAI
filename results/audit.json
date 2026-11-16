@@ -1,0 +1,176 @@
+{
+  "data_root": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data",
+  "datasets": {
+    "brain": {
+      "grouping": "image",
+      "patient_independent": false,
+      "leakage_note": "Filenames are sequential slice indexes (for example Tr-gl_0505), not patient or scan ids. The official Testing folder is held out and 15% of the official Training folder is validation. Slices from the same scan can still sit in more than one split. These scores are not a patient-level result.",
+      "classes": [
+        "Glioma",
+        "Meningioma",
+        "Pituitary tumor",
+        "No tumor"
+      ],
+      "counts": {
+        "train": {
+          "Glioma": 1123,
+          "Meningioma": 1138,
+          "Pituitary tumor": 1238,
+          "No tumor": 1356
+        },
+        "val": {
+          "Glioma": 198,
+          "Meningioma": 201,
+          "Pituitary tumor": 219,
+          "No tumor": 239
+        },
+        "test": {
+          "Glioma": 300,
+          "Meningioma": 306,
+          "Pituitary tumor": 300,
+          "No tumor": 405
+        }
+      },
+      "split_file": "results/splits/brain.json",
+      "filename_audit": {
+        "images": {
+          "train": 4855,
+          "val": 857,
+          "test": 1311
+        },
+        "numeric_suffixes_shared_by_train_or_val_and_test": 405,
+        "patient_ids_recovered": 0
+      }
+    },
+    "breast": {
+      "grouping": "patient",
+      "patient_independent": true,
+      "leakage_note": "Patient-level split, seed 42. Patients train 54, validation 14, test 14. Every slide from one patient stays in one split. Magnifications of the same patient are not separated.",
+      "classes": [
+        "Adenosis",
+        "Fibroadenoma",
+        "Phyllodes tumor",
+        "Tubular adenoma",
+        "Ductal carcinoma",
+        "Lobular carcinoma",
+        "Mucinous carcinoma",
+        "Papillary carcinoma"
+      ],
+      "counts": {
+        "train": {
+          "Adenosis": 251,
+          "Fibroadenoma": 557,
+          "Phyllodes tumor": 60,
+          "Tubular adenoma": 372,
+          "Ductal carcinoma": 2350,
+          "Lobular carcinoma": 429,
+          "Mucinous carcinoma": 611,
+          "Papillary carcinoma": 343
+        },
+        "val": {
+          "Adenosis": 61,
+          "Fibroadenoma": 210,
+          "Phyllodes tumor": 158,
+          "Tubular adenoma": 132,
+          "Ductal carcinoma": 518,
+          "Lobular carcinoma": 74,
+          "Mucinous carcinoma": 119,
+          "Papillary carcinoma": 127
+        },
+        "test": {
+          "Adenosis": 132,
+          "Fibroadenoma": 247,
+          "Phyllodes tumor": 235,
+          "Tubular adenoma": 65,
+          "Ductal carcinoma": 583,
+          "Lobular carcinoma": 123,
+          "Mucinous carcinoma": 62,
+          "Papillary carcinoma": 90
+        }
+      },
+      "split_file": "results/splits/breast.json",
+      "patients": {
+        "train": 54,
+        "val": 14,
+        "test": 14
+      }
+    },
+    "skin": {
+      "grouping": "official_medmnist",
+      "patient_independent": false,
+      "leakage_note": "The official MedMNIST train, validation, and test arrays are kept as published. They were not reshuffled. DermaMNIST does not ship HAM10000 lesion_id, so images of the same lesion may cross the split. Lesion-level independence could not be verified.",
+      "classes": [
+        "actinic keratoses and intraepithelial carcinoma",
+        "basal cell carcinoma",
+        "benign keratosis-like lesions",
+        "dermatofibroma",
+        "melanoma",
+        "melanocytic nevi",
+        "vascular lesions"
+      ],
+      "counts": {
+        "train": {
+          "actinic keratoses and intraepithelial carcinoma": 228,
+          "basal cell carcinoma": 359,
+          "benign keratosis-like lesions": 769,
+          "dermatofibroma": 80,
+          "melanoma": 779,
+          "melanocytic nevi": 4693,
+          "vascular lesions": 99
+        },
+        "val": {
+          "actinic keratoses and intraepithelial carcinoma": 33,
+          "basal cell carcinoma": 52,
+          "benign keratosis-like lesions": 110,
+          "dermatofibroma": 12,
+          "melanoma": 111,
+          "melanocytic nevi": 671,
+          "vascular lesions": 14
+        },
+        "test": {
+          "actinic keratoses and intraepithelial carcinoma": 66,
+          "basal cell carcinoma": 103,
+          "benign keratosis-like lesions": 220,
+          "dermatofibroma": 23,
+          "melanoma": 223,
+          "melanocytic nevi": 1341,
+          "vascular lesions": 29
+        }
+      },
+      "split_file": "results/splits/skin.json"
+    },
+    "lung": {
+      "grouping": "image",
+      "patient_independent": false,
+      "leakage_note": "The number in each filename, such as 'Bengin case (85)', is unique inside its class and runs from 1 to the class count. It is an image index, not a patient id shared by several slices. The public folders do not reconstruct the scan. The split is stratified by image. Patient-independent evaluation could not be verified, and the scores must not be described as leakage-free.",
+      "classes": [
+        "Normal",
+        "Benign",
+        "Malignant"
+      ],
+      "counts": {
+        "train": {
+          "Normal": 290,
+          "Benign": 84,
+          "Malignant": 393
+        },
+        "val": {
+          "Normal": 63,
+          "Benign": 18,
+          "Malignant": 84
+        },
+        "test": {
+          "Normal": 63,
+          "Benign": 18,
+          "Malignant": 84
+        }
+      },
+      "split_file": "results/splits/lung.json",
+      "filename_audit": {
+        "images": 1097,
+        "case_numbers_unique_within_class": true,
+        "patient_ids_recovered": 0
+      }
+    }
+  }
+}
