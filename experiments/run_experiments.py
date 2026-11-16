@@ -214,6 +214,7 @@ def main(argv=None) -> None:
     parser.add_argument("--smoke", action="store_true", help="One tiny brain run, to check that training is wired.")
     parser.add_argument("--epochs", type=int, default=None)
     parser.add_argument("--max-batches", type=int, default=None)
+    parser.add_argument("--force", action="store_true", help="Retrain even when a metrics file already exists.")
     args = parser.parse_args(argv)
     if args.smoke:
         started = time.perf_counter()
@@ -226,6 +227,10 @@ def main(argv=None) -> None:
     for dataset in datasets:
         for config_name in configs:
             for seed in seeds:
+                done = METRICS / f"{dataset}__{config_name}__seed{seed}.json"
+                if done.exists() and not args.force:
+                    print(f"skip existing {done.name}", flush=True)
+                    continue
                 run_one(
                     dataset,
                     config_name,

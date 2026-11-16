@@ -8,16 +8,10 @@ __pycache__/
 data/**
 !data/README.md
 
-# Trained weights
-models/*.pt
-models/*.json
-
-# Run outputs that are large or machine-specific
+# Every seed checkpoint stays local. The four demo weights in models/ are tracked.
 results/checkpoints/
 results/smoke/
-results/plots/
-results/gradcam/
-results/metrics/
+results/train.log
 results/mpl/
 
 # Held-out preview images exported from the datasets
