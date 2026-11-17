@@ -1,0 +1,216 @@
+{
+  "dataset": "skin",
+  "config": "frozen_resnet18",
+  "seed": 123,
+  "smoke": false,
+  "model": "resnet18",
+  "augment": true,
+  "freeze_backbone": true,
+  "lr": 0.001,
+  "best_epoch": 8,
+  "epochs_ran": 8,
+  "training_seconds": 231.49175741698127,
+  "total_params": 11180103,
+  "trainable_params": 3591,
+  "val": {
+    "loss": 0.2803019527661598,
+    "accuracy": 0.5423728813559322,
+    "macro_f1": 0.3644013122794192,
+    "precision_macro": 0.35993209016419087,
+    "recall_macro": 0.5358916796855907
+  },
+  "test": {
+    "accuracy": 0.5301745635910224,
+    "precision_macro": 0.3368379353444622,
+    "recall_macro": 0.49861060026991705,
+    "f1_macro": 0.3381928462732599,
+    "per_class": {
+      "actinic keratoses and intraepithelial carcinoma": {
+        "precision": 0.18085106382978725,
+        "recall": 0.25757575757575757,
+        "f1": 0.2125,
+        "support": 66
+      },
+      "basal cell carcinoma": {
+        "precision": 0.25806451612903225,
+        "recall": 0.6990291262135923,
+        "f1": 0.3769633507853403,
+        "support": 103
+      },
+      "benign keratosis-like lesions": {
+        "precision": 0.4666666666666667,
+        "recall": 0.2863636363636364,
+        "f1": 0.35492957746478876,
+        "support": 220
+      },
+      "dermatofibroma": {
+        "precision": 0.06716417910447761,
+        "recall": 0.391304347826087,
+        "f1": 0.11464968152866242,
+        "support": 23
+      },
+      "melanoma": {
+        "precision": 0.31382978723404253,
+        "recall": 0.5291479820627802,
+        "f1": 0.39398998330550916,
+        "support": 223
+      },
+      "melanocytic nevi": {
+        "precision": 0.9548872180451128,
+        "recall": 0.5682326621923938,
+        "f1": 0.7124824684431977,
+        "support": 1341
+      },
+      "vascular lesions": {
+        "precision": 0.1164021164021164,
+        "recall": 0.7586206896551724,
+        "f1": 0.2018348623853211,
+        "support": 29
+      }
+    },
+    "confusion_matrix": [
+      [
+        17,
+        33,
+        3,
+        3,
+        8,
+        0,
+        2
+      ],
+      [
+        7,
+        72,
+        3,
+        5,
+        5,
+        2,
+        9
+      ],
+      [
+        28,
+        52,
+        63,
+        16,
+        40,
+        8,
+        13
+      ],
+      [
+        0,
+        4,
+        1,
+        9,
+        3,
+        2,
+        4
+      ],
+      [
+        14,
+        28,
+        11,
+        9,
+        118,
+        21,
+        22
+      ],
+      [
+        28,
+        88,
+        54,
+        90,
+        202,
+        762,
+        117
+      ],
+      [
+        0,
+        2,
+        0,
+        2,
+        0,
+        3,
+        22
+      ]
+    ],
+    "report": "                                                 precision    recall  f1-score   support\n\nactinic keratoses and intraepithelial carcinoma     0.1809    0.2576    0.2125        66\n                           basal cell carcinoma     0.2581    0.6990    0.3770       103\n                  benign keratosis-like lesions     0.4667    0.2864    0.3549       220\n                                 dermatofibroma     0.0672    0.3913    0.1146        23\n                                       melanoma     0.3138    0.5291    0.3940       223\n                               melanocytic nevi     0.9549    0.5682    0.7125      1341\n                               vascular lesions     0.1164    0.7586    0.2018        29\n\n                                       accuracy                         0.5302      2005\n                                      macro avg     0.3368    0.4986    0.3382      2005\n                                   weighted avg     0.7464    0.5302    0.5899      2005\n",
+    "roc_auc_macro_ovr": 0.8611251547063757,
+    "loss": 0.2757836190096458
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lr": [
+      0.001,
+      0.0009619778264893878,
+      0.0008536998372026805,
+      0.0006916503744663625,
+      0.0005005000000000001,
+      0.00030934962553363774,
+      0.00014730016279731955,
+      3.902217351061228e-05
+    ],
+    "train_loss": [
+      0.395765272279226,
+      0.3360381583497513,
+      0.31652197427648915,
+      0.2996026833204225,
+      0.29165701556855644,
+      0.291697480861617,
+      0.2871590177666125,
+      0.2803756492920842
+    ],
+    "train_acc": [
+      0.3336663336663337,
+      0.4651063222491794,
+      0.4826601969459112,
+      0.5143428000570858,
+      0.5336092478949622,
+      0.5210503781932353,
+      0.5465962608819752,
+      0.530184101612673
+    ],
+    "val_loss": [
+      0.3443999793807626,
+      0.31349259947732105,
+      0.2950152948810714,
+      0.30493859802618817,
+      0.2844120800673427,
+      0.28105046617188456,
+      0.27936661288008496,
+      0.2803019527661598
+    ],
+    "val_acc": [
+      0.3918245264207378,
+      0.28414755732801594,
+      0.43768693918245266,
+      0.4675972083748754,
+      0.4626121635094716,
+      0.5254237288135594,
+      0.48953140578265203,
+      0.5423728813559322
+    ],
+    "val_macro_f1": [
+      0.20842849748726192,
+      0.26138614849485636,
+      0.3127109248676205,
+      0.2879241687386653,
+      0.3219107139040592,
+      0.36314951434446696,
+      0.33709661997444085,
+      0.3644013122794192
+    ]
+  },
+  "grouping": "official_medmnist",
+  "patient_independent": false,
+  "leakage_note": "The official MedMNIST train, validation, and test arrays are kept as published. They were not reshuffled. DermaMNIST does not ship HAM10000 lesion_id, so images of the same lesion may cross the split. Lesion-level independence could not be verified.",
+  "inference_ms": 2.8675420908257365
+}

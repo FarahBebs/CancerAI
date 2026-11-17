@@ -1,0 +1,152 @@
+{
+  "dataset": "brain",
+  "config": "frozen_resnet18",
+  "seed": 42,
+  "smoke": false,
+  "model": "resnet18",
+  "augment": true,
+  "freeze_backbone": true,
+  "lr": 0.001,
+  "best_epoch": 4,
+  "epochs_ran": 7,
+  "training_seconds": 194.99798854195978,
+  "total_params": 11178564,
+  "trainable_params": 2052,
+  "val": {
+    "loss": 0.3756008463604169,
+    "accuracy": 0.8891481913652275,
+    "macro_f1": 0.8864189138068996,
+    "precision_macro": 0.8891755768322724,
+    "recall_macro": 0.8854576381921458
+  },
+  "test": {
+    "accuracy": 0.8405797101449275,
+    "precision_macro": 0.839227680069174,
+    "recall_macro": 0.8317919389978213,
+    "f1_macro": 0.8344838708832959,
+    "per_class": {
+      "Glioma": {
+        "precision": 0.8731343283582089,
+        "recall": 0.78,
+        "f1": 0.823943661971831,
+        "support": 300
+      },
+      "Meningioma": {
+        "precision": 0.6780185758513931,
+        "recall": 0.7156862745098039,
+        "f1": 0.6963434022257552,
+        "support": 306
+      },
+      "Pituitary tumor": {
+        "precision": 0.9106529209621993,
+        "recall": 0.8833333333333333,
+        "f1": 0.8967851099830795,
+        "support": 300
+      },
+      "No tumor": {
+        "precision": 0.8951048951048951,
+        "recall": 0.9481481481481482,
+        "f1": 0.920863309352518,
+        "support": 405
+      }
+    },
+    "confusion_matrix": [
+      [
+        234,
+        62,
+        4,
+        0
+      ],
+      [
+        23,
+        219,
+        19,
+        45
+      ],
+      [
+        4,
+        31,
+        265,
+        0
+      ],
+      [
+        7,
+        11,
+        3,
+        384
+      ]
+    ],
+    "report": "                 precision    recall  f1-score   support\n\n         Glioma     0.8731    0.7800    0.8239       300\n     Meningioma     0.6780    0.7157    0.6963       306\nPituitary tumor     0.9107    0.8833    0.8968       300\n       No tumor     0.8951    0.9481    0.9209       405\n\n       accuracy                         0.8406      1311\n      macro avg     0.8392    0.8318    0.8345      1311\n   weighted avg     0.8430    0.8406    0.8408      1311\n",
+    "roc_auc_macro_ovr": 0.9555873255322963,
+    "loss": 0.4733868690959194
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "lr": [
+      0.001,
+      0.0009619778264893878,
+      0.0008536998372026805,
+      0.0006916503744663625,
+      0.0005005000000000001,
+      0.00030934962553363774,
+      0.00014730016279731955
+    ],
+    "train_loss": [
+      0.8044789093959958,
+      0.5360511069808512,
+      0.4739660169449697,
+      0.44499692031087396,
+      0.4355816624191591,
+      0.4362749418625503,
+      0.4162618744140059
+    ],
+    "train_acc": [
+      0.682183316168898,
+      0.8026776519052523,
+      0.8306900102986612,
+      0.8438722966014418,
+      0.8451081359423275,
+      0.843048403707518,
+      0.850669412976313
+    ],
+    "val_loss": [
+      0.5120545169088637,
+      0.4278080910270384,
+      0.39367133924952746,
+      0.3756008463604169,
+      0.36689257374861417,
+      0.36715136897883865,
+      0.3537366102289847
+    ],
+    "val_acc": [
+      0.8564760793465578,
+      0.8634772462077013,
+      0.8751458576429405,
+      0.8891481913652275,
+      0.8763127187864644,
+      0.8716452742123687,
+      0.8891481913652275
+    ],
+    "val_macro_f1": [
+      0.8534676064740789,
+      0.8588022670243687,
+      0.8689959230357369,
+      0.8864189138068996,
+      0.870419725671195,
+      0.8627392958824218,
+      0.884284293754283
+    ]
+  },
+  "grouping": "image",
+  "patient_independent": false,
+  "leakage_note": "Filenames are sequential slice indexes (for example Tr-gl_0505), not patient or scan ids. The official Testing folder is held out and 15% of the official Training folder is validation. Slices from the same scan can still sit in more than one split. These scores are not a patient-level result.",
+  "inference_ms": 2.9243340250104666
+}

@@ -1,0 +1,12 @@
+{
+  "dataset": "brain",
+  "config": "finetune_aug",
+  "seed": 42,
+  "val_macro_f1": 0.9916472905901382,
+  "classes": [
+    "Glioma",
+    "Meningioma",
+    "Pituitary tumor",
+    "No tumor"
+  ]
+}

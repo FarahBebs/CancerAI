@@ -1,0 +1,144 @@
+{
+  "dataset": "lung",
+  "config": "finetune_aug",
+  "seed": 42,
+  "smoke": false,
+  "model": "resnet18",
+  "augment": true,
+  "freeze_backbone": false,
+  "lr": 0.0001,
+  "best_epoch": 6,
+  "epochs_ran": 8,
+  "training_seconds": 56.106606292072684,
+  "total_params": 11178051,
+  "trainable_params": 11178051,
+  "val": {
+    "loss": 0.12259735767588471,
+    "accuracy": 0.9575757575757575,
+    "macro_f1": 0.9345822263412624,
+    "precision_macro": 0.9203789042498721,
+    "recall_macro": 0.9523809523809524
+  },
+  "test": {
+    "accuracy": 0.9575757575757575,
+    "precision_macro": 0.9073937607467452,
+    "recall_macro": 0.951058201058201,
+    "f1_macro": 0.9246999802873263,
+    "per_class": {
+      "Normal": {
+        "precision": 0.9830508474576272,
+        "recall": 0.9206349206349206,
+        "f1": 0.9508196721311475,
+        "support": 63
+      },
+      "Benign": {
+        "precision": 0.7391304347826086,
+        "recall": 0.9444444444444444,
+        "f1": 0.8292682926829268,
+        "support": 18
+      },
+      "Malignant": {
+        "precision": 1.0,
+        "recall": 0.9880952380952381,
+        "f1": 0.9940119760479041,
+        "support": 84
+      }
+    },
+    "confusion_matrix": [
+      [
+        58,
+        5,
+        0
+      ],
+      [
+        1,
+        17,
+        0
+      ],
+      [
+        0,
+        1,
+        83
+      ]
+    ],
+    "report": "              precision    recall  f1-score   support\n\n      Normal     0.9831    0.9206    0.9508        63\n      Benign     0.7391    0.9444    0.8293        18\n   Malignant     1.0000    0.9881    0.9940        84\n\n    accuracy                         0.9576       165\n   macro avg     0.9074    0.9511    0.9247       165\nweighted avg     0.9651    0.9576    0.9595       165\n",
+    "roc_auc_macro_ovr": 0.9986809538630267,
+    "loss": 0.045564957640387795
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05,
+      1.54982143312659e-05,
+      4.767963140691306e-06
+    ],
+    "train_loss": [
+      0.4262108554507483,
+      0.20347575820020777,
+      0.12696588274475182,
+      0.07774697031432366,
+      0.04193205481110993,
+      0.03591871062461214,
+      0.03679680625022895,
+      0.030540314356090968
+    ],
+    "train_acc": [
+      0.7144719687092569,
+      0.878748370273794,
+      0.9491525423728814,
+      0.9687092568448501,
+      0.9882659713168188,
+      0.9882659713168188,
+      0.9856584093872229,
+      0.9960886571056062
+    ],
+    "val_loss": [
+      0.26101913118001185,
+      0.22472752727793924,
+      0.2310972525089076,
+      0.16031963390608628,
+      0.11635561551560056,
+      0.12259735767588471,
+      0.10282458994876255,
+      0.10302299431553393
+    ],
+    "val_acc": [
+      0.8848484848484849,
+      0.9090909090909091,
+      0.9030303030303031,
+      0.9333333333333333,
+      0.9333333333333333,
+      0.9575757575757575,
+      0.9575757575757575,
+      0.9575757575757575
+    ],
+    "val_macro_f1": [
+      0.822563133780644,
+      0.852964392964393,
+      0.8270665410879902,
+      0.8956528134360292,
+      0.8959134635794764,
+      0.9345822263412624,
+      0.9345822263412624,
+      0.9345822263412624
+    ]
+  },
+  "grouping": "image",
+  "patient_independent": false,
+  "leakage_note": "The number in each filename, such as 'Bengin case (85)', is unique inside its class and runs from 1 to the class count. It is an image index, not a patient id shared by several slices. The public folders do not reconstruct the scan. The split is stratified by image. Patient-independent evaluation could not be verified, and the scores must not be described as leakage-free.",
+  "inference_ms": 3.2805840019136667
+}

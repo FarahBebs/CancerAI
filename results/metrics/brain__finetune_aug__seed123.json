@@ -1,0 +1,145 @@
+{
+  "dataset": "brain",
+  "config": "finetune_aug",
+  "seed": 123,
+  "smoke": false,
+  "model": "resnet18",
+  "augment": true,
+  "freeze_backbone": false,
+  "lr": 0.0001,
+  "best_epoch": 3,
+  "epochs_ran": 6,
+  "training_seconds": 222.3192626660457,
+  "total_params": 11178564,
+  "trainable_params": 11178564,
+  "val": {
+    "loss": 0.04077326390966164,
+    "accuracy": 0.9871645274212368,
+    "macro_f1": 0.9866277764131604,
+    "precision_macro": 0.9867903838562264,
+    "recall_macro": 0.9865807021970379
+  },
+  "test": {
+    "accuracy": 0.9855072463768116,
+    "precision_macro": 0.9849247282068437,
+    "recall_macro": 0.984297385620915,
+    "f1_macro": 0.9845876638363804,
+    "per_class": {
+      "Glioma": {
+        "precision": 0.9864406779661017,
+        "recall": 0.97,
+        "f1": 0.9781512605042016,
+        "support": 300
+      },
+      "Meningioma": {
+        "precision": 0.9738562091503268,
+        "recall": 0.9738562091503268,
+        "f1": 0.9738562091503268,
+        "support": 306
+      },
+      "Pituitary tumor": {
+        "precision": 0.9867549668874173,
+        "recall": 0.9933333333333333,
+        "f1": 0.9900332225913622,
+        "support": 300
+      },
+      "No tumor": {
+        "precision": 0.9926470588235294,
+        "recall": 1.0,
+        "f1": 0.996309963099631,
+        "support": 405
+      }
+    },
+    "confusion_matrix": [
+      [
+        291,
+        7,
+        2,
+        0
+      ],
+      [
+        3,
+        298,
+        2,
+        3
+      ],
+      [
+        1,
+        1,
+        298,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        405
+      ]
+    ],
+    "report": "                 precision    recall  f1-score   support\n\n         Glioma     0.9864    0.9700    0.9782       300\n     Meningioma     0.9739    0.9739    0.9739       306\nPituitary tumor     0.9868    0.9933    0.9900       300\n       No tumor     0.9926    1.0000    0.9963       405\n\n       accuracy                         0.9855      1311\n      macro avg     0.9849    0.9843    0.9846      1311\n   weighted avg     0.9855    0.9855    0.9855      1311\n",
+    "roc_auc_macro_ovr": 0.9996659582098582,
+    "loss": 0.04048179060754933
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05
+    ],
+    "train_loss": [
+      0.30115773704221394,
+      0.1071920053728393,
+      0.055219044499809015,
+      0.04044777487896682,
+      0.01894396561879883,
+      0.012561591531617143
+    ],
+    "train_acc": [
+      0.8873326467559217,
+      0.96086508753862,
+      0.9839340885684861,
+      0.988053553038105,
+      0.9954685890834192,
+      0.9973223480947477
+    ],
+    "val_loss": [
+      0.13881541599922725,
+      0.06572338878725902,
+      0.04077326390966164,
+      0.04201873509613243,
+      0.042175384747492564,
+      0.030791343885551065
+    ],
+    "val_acc": [
+      0.9498249708284714,
+      0.9801633605600933,
+      0.9871645274212368,
+      0.9859976662777129,
+      0.9836639439906651,
+      0.9871645274212368
+    ],
+    "val_macro_f1": [
+      0.9467579865826543,
+      0.9795855786639609,
+      0.9866277764131604,
+      0.9854685678205365,
+      0.9830414336440734,
+      0.9866937848117355
+    ]
+  },
+  "grouping": "image",
+  "patient_independent": false,
+  "leakage_note": "Filenames are sequential slice indexes (for example Tr-gl_0505), not patient or scan ids. The official Testing folder is held out and 15% of the official Training folder is validation. Slices from the same scan can still sit in more than one split. These scores are not a patient-level result.",
+  "inference_ms": 3.4914170391857624
+}

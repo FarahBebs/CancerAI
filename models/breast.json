@@ -1,0 +1,16 @@
+{
+  "dataset": "breast",
+  "config": "finetune_aug",
+  "seed": 42,
+  "val_macro_f1": 0.26366335365294985,
+  "classes": [
+    "Adenosis",
+    "Fibroadenoma",
+    "Phyllodes tumor",
+    "Tubular adenoma",
+    "Ductal carcinoma",
+    "Lobular carcinoma",
+    "Mucinous carcinoma",
+    "Papillary carcinoma"
+  ]
+}

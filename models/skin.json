@@ -1,0 +1,15 @@
+{
+  "dataset": "skin",
+  "config": "finetune_aug",
+  "seed": 2026,
+  "val_macro_f1": 0.6887427131964021,
+  "classes": [
+    "actinic keratoses and intraepithelial carcinoma",
+    "basal cell carcinoma",
+    "benign keratosis-like lesions",
+    "dermatofibroma",
+    "melanoma",
+    "melanocytic nevi",
+    "vascular lesions"
+  ]
+}

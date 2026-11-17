@@ -1,0 +1,218 @@
+{
+  "dataset": "breast",
+  "config": "finetune_aug",
+  "seed": 2026,
+  "smoke": false,
+  "model": "resnet18",
+  "augment": true,
+  "freeze_backbone": false,
+  "lr": 0.0001,
+  "best_epoch": 2,
+  "epochs_ran": 5,
+  "training_seconds": 399.5899812920252,
+  "total_params": 11180616,
+  "trainable_params": 11180616,
+  "val": {
+    "loss": 4.985854044050681,
+    "accuracy": 0.39385275196568975,
+    "macro_f1": 0.2520868961069958,
+    "precision_macro": 0.2732180649442717,
+    "recall_macro": 0.27003398415799995
+  },
+  "test": {
+    "accuracy": 0.5627846454131424,
+    "precision_macro": 0.4440325113500465,
+    "recall_macro": 0.5348923811015389,
+    "f1_macro": 0.47493747868529285,
+    "per_class": {
+      "Adenosis": {
+        "precision": 0.7538461538461538,
+        "recall": 0.7424242424242424,
+        "f1": 0.7480916030534351,
+        "support": 132
+      },
+      "Fibroadenoma": {
+        "precision": 0.4909560723514212,
+        "recall": 0.7692307692307693,
+        "f1": 0.5993690851735016,
+        "support": 247
+      },
+      "Phyllodes tumor": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 235
+      },
+      "Tubular adenoma": {
+        "precision": 0.6,
+        "recall": 0.6461538461538462,
+        "f1": 0.6222222222222222,
+        "support": 65
+      },
+      "Ductal carcinoma": {
+        "precision": 0.8252032520325203,
+        "recall": 0.6963979416809606,
+        "f1": 0.7553488372093023,
+        "support": 583
+      },
+      "Lobular carcinoma": {
+        "precision": 0.3767123287671233,
+        "recall": 0.44715447154471544,
+        "f1": 0.40892193308550184,
+        "support": 123
+      },
+      "Mucinous carcinoma": {
+        "precision": 0.23846153846153847,
+        "recall": 0.5,
+        "f1": 0.3229166666666667,
+        "support": 62
+      },
+      "Papillary carcinoma": {
+        "precision": 0.2670807453416149,
+        "recall": 0.4777777777777778,
+        "f1": 0.3426294820717131,
+        "support": 90
+      }
+    },
+    "confusion_matrix": [
+      [
+        98,
+        12,
+        1,
+        0,
+        1,
+        5,
+        13,
+        2
+      ],
+      [
+        14,
+        190,
+        1,
+        8,
+        0,
+        0,
+        1,
+        33
+      ],
+      [
+        2,
+        147,
+        0,
+        14,
+        17,
+        4,
+        2,
+        49
+      ],
+      [
+        0,
+        1,
+        14,
+        42,
+        0,
+        0,
+        8,
+        0
+      ],
+      [
+        5,
+        18,
+        0,
+        5,
+        406,
+        82,
+        50,
+        17
+      ],
+      [
+        0,
+        2,
+        0,
+        1,
+        54,
+        55,
+        8,
+        3
+      ],
+      [
+        0,
+        0,
+        5,
+        0,
+        12,
+        0,
+        31,
+        14
+      ],
+      [
+        11,
+        17,
+        0,
+        0,
+        2,
+        0,
+        17,
+        43
+      ]
+    ],
+    "report": "                     precision    recall  f1-score   support\n\n           Adenosis     0.7538    0.7424    0.7481       132\n       Fibroadenoma     0.4910    0.7692    0.5994       247\n    Phyllodes tumor     0.0000    0.0000    0.0000       235\n    Tubular adenoma     0.6000    0.6462    0.6222        65\n   Ductal carcinoma     0.8252    0.6964    0.7553       583\n  Lobular carcinoma     0.3767    0.4472    0.4089       123\n Mucinous carcinoma     0.2385    0.5000    0.3229        62\nPapillary carcinoma     0.2671    0.4778    0.3426        90\n\n           accuracy                         0.5628      1537\n          macro avg     0.4440    0.5349    0.4749      1537\n       weighted avg     0.5374    0.5628    0.5392      1537\n",
+    "roc_auc_macro_ovr": 0.8344298639047925,
+    "loss": 5.218416724739404
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05
+    ],
+    "train_loss": [
+      0.4403478426399208,
+      0.20360471871856614,
+      0.16077817416070644,
+      0.11471692822302776,
+      0.08126575389355212
+    ],
+    "train_acc": [
+      0.4928614518399356,
+      0.7450231248743213,
+      0.8077619143374221,
+      0.8505932032978082,
+      0.8954353508948321
+    ],
+    "val_loss": [
+      5.139251000588072,
+      4.985854044050681,
+      5.994165238341832,
+      5.700824370068512,
+      6.288452113948608
+    ],
+    "val_acc": [
+      0.3052180128663331,
+      0.39385275196568975,
+      0.38813438170121517,
+      0.3995711222301644,
+      0.38027162258756253
+    ],
+    "val_macro_f1": [
+      0.19135264661591894,
+      0.2520868961069958,
+      0.23763555180307638,
+      0.23538206542630802,
+      0.2342265406739436
+    ]
+  },
+  "grouping": "patient",
+  "patient_independent": true,
+  "leakage_note": "Patient-level split, seed 42. Patients train 54, validation 14, test 14. Every slide from one patient stays in one split. Magnifications of the same patient are not separated.",
+  "inference_ms": 3.041874966584146
+}

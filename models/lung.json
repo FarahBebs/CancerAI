@@ -1,0 +1,11 @@
+{
+  "dataset": "lung",
+  "config": "finetune_aug",
+  "seed": 2026,
+  "val_macro_f1": 0.9511205231812797,
+  "classes": [
+    "Normal",
+    "Benign",
+    "Malignant"
+  ]
+}
