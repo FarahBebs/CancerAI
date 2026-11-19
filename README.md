@@ -51,6 +51,7 @@ Membership is written once to `results/splits/` and reloaded after that.
 cancerai/          datasets, models, training, metrics, Grad-CAM
 experiments/       the 48-run configuration and the summary tables
 notebooks/         BIL458_CancerAI_Experiments.ipynb
+deliverables/      the report PDF and the ten-slide talk
 app.py             Gradio demo
 results/splits/    the fixed split
 models/            demo checkpoints (fine-tuned ResNet18, best validation macro-F1)
@@ -74,6 +75,6 @@ python -m experiments.summarize
 python app.py                        # http://127.0.0.1:7860
 ```
 
-Open `notebooks/BIL458_CancerAI_Experiments.ipynb` and use Kernel → Restart & Run All before submission. The full 48-run study is off inside the notebook until `RUN_FULL_STUDY` is set. The training window in the course plan is 26 November–2 December.
+Open `notebooks/BIL458_CancerAI_Experiments.ipynb` and use Kernel → Restart & Run All before submission. The 48 runs are already saved, so `RUN_FULL_STUDY` stays off and the notebook loads those scores. The report is `deliverables/BIL458_CancerAI_Report.pdf`. The talk is `deliverables/BIL458_CancerAI_Slides.pptx`.
 
 The demo asks for a modality, then shows the category, the broader group obtained by adding the category scores, and Grad-CAM. The group is not a second model.

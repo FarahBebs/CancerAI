@@ -1,0 +1,22 @@
+true: Pituitary tumor
+
+1. Category
+Pituitary tumor (100.0%)
+
+2. Broader group
+Tumor (100.0% of the category scores)
+This group is the category scores added together. It is not a separately trained model.
+
+Category scores:
+- Pituitary tumor: 100.0%
+- Meningioma: 0.0%
+- Glioma: 0.0%
+- No tumor: 0.0%
+
+Expect a brain MRI slice from the same kind of collection as the training set. A photo of a person is not an MRI. The source filenames have no patient id, so the published score can be optimistic for a new person.
+
+This is a course project for comparing image classifiers. A score is how strongly an image matches a training folder. It is not a diagnosis, not a risk estimate, and not something to use for a health decision. A tumor is not the same thing as cancer. Brain labels do not say benign or malignant. Actinic keratoses are precancerous and are grouped here as cancer-related only because that is the dataset convention. The models are not validated for clinical use.
+
+Checkpoint: finetune_aug, seed 42.
+Forward pass: 40.3 ms.
+Grad-CAM shows which spatial features moved the winning logit. It is not a tumor outline.

@@ -7,6 +7,7 @@ It is not a second network, and it is not a diagnosis.
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import gradio as gr
@@ -132,7 +133,22 @@ def analyze(dataset_title, image):
     return "\n".join(lines), result["overlay"]
 
 
+def opening_state():
+    """Open on a finished example so a new visitor sees the same filled page."""
+    name = "breast"
+    path = ROOT / "examples" / f"{name}.jpg"
+    title = DATASET_TITLES[name]
+    if not path.exists():
+        return DATASET_TITLES["brain"], None, "", None
+    from PIL import Image
+
+    picture = Image.open(path).convert("RGB")
+    text, heat = analyze(title, picture)
+    return title, picture, text, heat
+
+
 def build_demo():
+    title, picture, result_text, heat_image = opening_state()
     with gr.Blocks(title="CancerAI") as demo:
         gr.Markdown("# CancerAI")
         gr.Markdown(
@@ -144,14 +160,21 @@ def build_demo():
             with gr.Column():
                 dataset = gr.Radio(
                     [DATASET_TITLES[name] for name in DATASETS],
-                    value=DATASET_TITLES["brain"],
+                    value=title,
                     label="Image type",
                 )
-                image = gr.Image(type="pil", label="Image", height=320)
+                image = gr.Image(type="pil", label="Image", height=320, value=picture)
                 button = gr.Button("Run model", variant="primary")
             with gr.Column():
-                text = gr.Textbox(label="Result", lines=22)
-                heat = gr.Image(label="Grad-CAM for the predicted category", height=320)
+                text = gr.Textbox(label="Result", lines=34, value=result_text)
+                heat = gr.Image(label="Grad-CAM for the predicted category", height=320, value=heat_image)
+        example_rows = []
+        for name in DATASETS:
+            example_path = ROOT / "examples" / f"{name}.jpg"
+            if example_path.exists():
+                example_rows.append([DATASET_TITLES[name], str(example_path)])
+        if example_rows:
+            gr.Examples(examples=example_rows, inputs=[dataset, image], label="Try an example")
         button.click(analyze, inputs=[dataset, image], outputs=[text, heat])
     return demo
 
@@ -161,4 +184,10 @@ if __name__ == "__main__":
     if missing:
         print("Still missing checkpoints:", ", ".join(missing))
         print("Train the demo models with: python -m experiments.run_experiments --config finetune_aug")
-    build_demo().launch(server_name="127.0.0.1", server_port=7860)
+    public = os.environ.get("CANCERAI_SHARE", "1") != "0"
+    build_demo().launch(
+        server_name="127.0.0.1",
+        server_port=7860,
+        share=public,
+        allowed_paths=[str(ROOT), str(ROOT / "examples")],
+    )

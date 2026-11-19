@@ -89,6 +89,9 @@ def format_mean_std(mean: float, std: float, digits: int = 3) -> str:
 
 
 def worst_mistakes(y_true, y_pred, probs, k: int = 5) -> list[int]:
+    y_true = np.asarray(y_true)
+    y_pred = np.asarray(y_pred)
+    probs = np.asarray(probs, dtype=float)
     wrong = [i for i in range(len(y_true)) if int(y_true[i]) != int(y_pred[i])]
     wrong.sort(key=lambda i: -float(probs[i, int(y_pred[i])]))
     return wrong[:k]
