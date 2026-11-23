@@ -143,10 +143,13 @@ def equation(latex: str, name: str):
     plt.rcParams["mathtext.fontset"] = "cm"
     fig = plt.figure(figsize=(0.2, 0.2))
     fig.patch.set_facecolor("white")
-    fig.text(0.5, 0.5, f"${latex}$", fontsize=18, ha="center", va="center", color="black")
-    fig.savefig(path, dpi=220, bbox_inches="tight", pad_inches=0.06, facecolor="white")
+    fig.text(0.5, 0.5, f"${latex}$", fontsize=11, ha="center", va="center", color="black")
+    fig.savefig(path, dpi=220, bbox_inches="tight", pad_inches=0.02, facecolor="white")
     plt.close(fig)
-    img = Image(str(path), width=16 * cm, height=1.8 * cm, kind="proportional")
+    from PIL import Image as PILImage
+    with PILImage.open(path) as rendered:
+        px_w, px_h = rendered.size
+    img = Image(str(path), width=px_w / 220 * 72, height=px_h / 220 * 72)
     return KeepTogether([img, Spacer(1, 0.15 * cm)])
 
 
