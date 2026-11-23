@@ -131,6 +131,25 @@ def table(headers, rows, col_widths, caption):
     return KeepTogether([tbl, Paragraph(caption, S["Caption"])])
 
 
+def equation(latex: str, name: str):
+    """Render one formula in the same notation as the notebook."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    folder = ROOT / "deliverables" / "figures"
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / name
+    plt.rcParams["mathtext.fontset"] = "cm"
+    fig = plt.figure(figsize=(0.2, 0.2))
+    fig.patch.set_facecolor("white")
+    fig.text(0.5, 0.5, f"${latex}$", fontsize=18, ha="center", va="center", color="black")
+    fig.savefig(path, dpi=220, bbox_inches="tight", pad_inches=0.06, facecolor="white")
+    plt.close(fig)
+    img = Image(str(path), width=16 * cm, height=1.8 * cm, kind="proportional")
+    return KeepTogether([img, Spacer(1, 0.15 * cm)])
+
+
 def figure(path: Path, caption: str, width=15.5 * cm, height=8.2 * cm):
     img = Image(str(path), width=width, height=height, kind="proportional")
     return KeepTogether([img, Paragraph(caption, S["Caption"])])
@@ -299,31 +318,34 @@ def build():
     story.append(P(
         "A convolution reads a local patch of the input feature map X with a kernel K of size k:"
     ))
-    story.append(Paragraph(
-        "Y(i, j) = sum_u sum_v  X(i+u, j+v) K(u, v).",
-        S["Eq"],
+    story.append(equation(
+        r"Y(i,j)=\sum_{u=0}^{k-1}\;\sum_{v=0}^{k-1} X(i+u,j+v)\,K(u,v)",
+        "eq_convolution.png",
     ))
     story.append(P("The nonlinearity used throughout both networks is the rectified linear unit,"))
-    story.append(Paragraph("f(x) = max(0, x).", S["Eq"]))
+    story.append(equation(r"f(x)=\max(0,x)", "eq_relu.png"))
     story.append(P(
-        "Training minimises class-weighted cross-entropy. For a one-hot label y the loss on one "
+        "Training minimises class-weighted cross-entropy. For a one-hot label the loss on one "
         "image is"
     ))
-    story.append(Paragraph(
-        "L = - sum_c  w_c y_c log yhat_c,",
-        S["Eq"],
+    story.append(equation(
+        r"L=-\sum_{c=1}^{C} w_c y_c \log \hat{y}_c",
+        "eq_loss.png",
     ))
     story.append(P(
-        "where yhat is the softmax of the logits and the class weight is w_c = N / (C n_c), "
+        "where the hatted term is the softmax of the logits. The class weight is"
+    ))
+    story.append(equation(r"w_c=N/(C\,n_c)", "eq_weight.png"))
+    story.append(P(
         "rescaled so that the weights average to 1. The quantity actually optimised is the mean "
         "of L over the batch. This is the formula above. It is not the default weighted loss in "
         "PyTorch, which also divides by the sum of the weights in the batch. The unit test checks "
         "that the implemented loss matches the formula on a hand-computed example."
     ))
     story.append(P("The selection metric, and the number reported in the tables, is macro-F1:"))
-    story.append(Paragraph(
-        "F1_macro = (1/C) sum_c  2 P_c R_c / (P_c + R_c).",
-        S["Eq"],
+    story.append(equation(
+        r"F1_{macro}=\frac{1}{C}\sum_{c=1}^{C}\frac{2 P_c R_c}{P_c+R_c}",
+        "eq_f1.png",
     ))
     story.append(P(
         "Each class contributes the same amount, so a large nevus class cannot hide a weak "
@@ -361,9 +383,12 @@ def build():
     ))
     story.append(Paragraph("2.4 Complexity", S["H2"]))
     story.append(P(
-        "One convolutional layer with spatial size H x W, C_in input channels, C_out output "
-        "channels, and a k x k kernel costs about O(H W C_in C_out k<sup>2</sup>) multiply-adds. "
-        "The custom CNN applies this four times and then pools. After three stride-2 pools a "
+        "One convolutional layer with spatial size H by W, C_in input channels, C_out output "
+        "channels, and a K by K kernel costs about"
+    ))
+    story.append(equation(r"O(HW\,C_{in} C_{out} K^{2})", "eq_cost.png"))
+    story.append(P(
+        "multiply-adds. The custom CNN applies this four times and then pools. After three stride-2 pools a "
         "224 x 224 input is 28 x 28, so the last convolution dominates that network. ResNet18 "
         "repeats residual blocks through 18 layers and stores 11.18 million parameters. Freezing "
         "the backbone leaves only the classification head trainable: 512 C + C weights, which is "
