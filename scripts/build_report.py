@@ -449,11 +449,7 @@ def build():
         "is that map. A brain tumour is reported as a tumour, not as cancer, because the MRI "
         "folders do not carry a benign or malignant label. Actinic keratosis is precancerous; "
         "it is placed in the cancer-related group only because that is the convention of the "
-        "HAM10000 release, and the page says so [5]. "
-        "Anyone can open the page at "
-        '<link href="https://43a3d99492816eb041.gradio.live" color="blue">'
-        "https://43a3d99492816eb041.gradio.live</link>. "
-        "The same page runs on this machine at http://127.0.0.1:7860."
+        "HAM10000 release, and the page says so [5]."
     ))
     story.append(table(
         ["Dataset", "Group shown beside the category", "How it is obtained"],
