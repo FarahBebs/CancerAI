@@ -439,8 +439,8 @@ def build():
         "it is placed in the cancer-related group only because that is the convention of the "
         "HAM10000 release, and the page says so [5]. "
         "Anyone can open the page at "
-        '<link href="https://1a13cc7bc797761295.gradio.live" color="blue">'
-        "https://1a13cc7bc797761295.gradio.live</link>. "
+        '<link href="https://43a3d99492816eb041.gradio.live" color="blue">'
+        "https://43a3d99492816eb041.gradio.live</link>. "
         "The same page runs on this machine at http://127.0.0.1:7860."
     ))
     story.append(table(
