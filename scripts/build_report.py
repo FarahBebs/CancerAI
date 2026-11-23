@@ -191,7 +191,13 @@ def build():
     story.append(Paragraph("Term project report", S["CoverMeta"]))
     story.append(Paragraph("18 November 2026", S["CoverMeta"]))
     story.append(Paragraph(
-        "Notebook and code: https://github.com/FarahBebs/CancerAI",
+        'Code: <link href="https://github.com/FarahBebs/CancerAI" color="blue">'
+        "https://github.com/FarahBebs/CancerAI</link>",
+        S["CoverMeta"],
+    ))
+    story.append(Paragraph(
+        'Notebook: <link href="https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb" color="blue">'
+        "https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb</link>",
         S["CoverMeta"],
     ))
     story.append(PageBreak())
@@ -254,7 +260,13 @@ def build():
     story.append(P(
         "The contribution is the controlled comparison itself: the same split, the same loss, "
         "three seeds, and one augmentation switch. It is not a claim that one network detects "
-        "every cancer."
+        "every cancer. The experiment notebook, which loads the saved runs, the figures, and "
+        "the unit tests, is "
+        '<link href="https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb" color="blue">'
+        "https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb</link>. "
+        "The file in the repository is "
+        '<link href="https://github.com/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb" color="blue">'
+        "notebooks/BIL458_CancerAI_Experiments.ipynb</link>."
     ))
 
     story.append(Paragraph("2. Method", S["H1"]))
