@@ -52,6 +52,15 @@ def styles():
         alignment=TA_CENTER, textColor=colors.HexColor("#333333"), spaceAfter=4,
     ))
     base.add(ParagraphStyle(
+        "CoverLink", fontName="Times-Roman", fontSize=9, leading=12,
+        alignment=TA_CENTER, textColor=colors.HexColor("#1a4f8b"), spaceAfter=6,
+    ))
+    base.add(ParagraphStyle(
+        "BodyLink", fontName="Times-Roman", fontSize=9, leading=12,
+        alignment=TA_CENTER, textColor=colors.HexColor("#1a4f8b"),
+        spaceBefore=2, spaceAfter=8,
+    ))
+    base.add(ParagraphStyle(
         "H1", fontName="Times-Bold", fontSize=14, leading=18, textColor=NAVY,
         spaceBefore=14, spaceAfter=6,
     ))
@@ -190,15 +199,17 @@ def build():
     story.append(Spacer(1, 0.6 * cm))
     story.append(Paragraph("Term project report", S["CoverMeta"]))
     story.append(Paragraph("18 November 2026", S["CoverMeta"]))
+    story.append(Paragraph("Code", S["CoverMeta"]))
     story.append(Paragraph(
-        'Code: <link href="https://github.com/FarahBebs/CancerAI" color="blue">'
+        '<link href="https://github.com/FarahBebs/CancerAI" color="blue">'
         "https://github.com/FarahBebs/CancerAI</link>",
-        S["CoverMeta"],
+        S["CoverLink"],
     ))
+    story.append(Paragraph("Notebook", S["CoverMeta"]))
     story.append(Paragraph(
-        'Notebook: <link href="https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb" color="blue">'
+        '<link href="https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb" color="blue">'
         "https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb</link>",
-        S["CoverMeta"],
+        S["CoverLink"],
     ))
     story.append(PageBreak())
 
@@ -260,13 +271,18 @@ def build():
     story.append(P(
         "The contribution is the controlled comparison itself: the same split, the same loss, "
         "three seeds, and one augmentation switch. It is not a claim that one network detects "
-        "every cancer. The experiment notebook, which loads the saved runs, the figures, and "
-        "the unit tests, is "
+        "every cancer. The experiment notebook loads the saved runs, the figures, and the unit tests."
+    ))
+    story.append(Paragraph(
         '<link href="https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb" color="blue">'
-        "https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb</link>. "
-        "The file in the repository is "
+        "https://colab.research.google.com/github/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb</link>",
+        S["BodyLink"],
+    ))
+    story.append(Paragraph("The same file in the repository:", S["Body"]))
+    story.append(Paragraph(
         '<link href="https://github.com/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb" color="blue">'
-        "notebooks/BIL458_CancerAI_Experiments.ipynb</link>."
+        "https://github.com/FarahBebs/CancerAI/blob/main/notebooks/BIL458_CancerAI_Experiments.ipynb</link>",
+        S["BodyLink"],
     ))
 
     story.append(Paragraph("2. Method", S["H1"]))
