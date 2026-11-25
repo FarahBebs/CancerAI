@@ -20,3 +20,11 @@ examples/
 
 # Classroom copy of the notebook with every output, including the held-out demo images
 deliverables/BIL458_CancerAI_Experiments.ipynb
+
+# Working files kept locally only (not part of the submitted project)
+deliverables/figures/
+deliverables/*_Script.md
+scripts/
+notebooks/figures/
+docs/
+BIL458_Proje_Notebook_Sablonu.ipynb

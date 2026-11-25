@@ -43,7 +43,7 @@ Membership is written once to `results/splits/` and reloaded after that.
 - **Skin.** Official MedMNIST split, not reshuffled. Lesion ids are not in DermaMNIST, so this is not a lesion-level claim.
 - **Brain MRI and lung CT.** Filenames do not contain a patient or scan id. The brain test set is the official Testing folder. The lung split is stratified by image. Those two results are not described as patient-level or leakage-free.
 
-`results/audit.md` records the counts and that decision. The draft paragraph for the 25 November proposal is `docs/proposal.md`.
+`results/audit.md` records the counts and that decision.
 
 ## Layout
 
@@ -75,6 +75,6 @@ python -m experiments.summarize
 python app.py                        # http://127.0.0.1:7860
 ```
 
-Open `notebooks/BIL458_CancerAI_Experiments.ipynb` and use Kernel → Restart & Run All before submission. The 48 runs are already saved, so `RUN_FULL_STUDY` stays off and the notebook loads those scores. The report is `deliverables/BIL458_CancerAI_Report.pdf`. The talk is `deliverables/BIL458_CancerAI_Slides.pptx`.
+The notebook `notebooks/BIL458_CancerAI_Experiments.ipynb` runs end to end with Kernel → Restart & Run All and loads the stored results of the 48 runs; set `RUN_FULL_STUDY = True` to retrain. The report and the slides are in `deliverables/`.
 
 The demo asks for a modality, then shows the category, the broader group obtained by adding the category scores, and Grad-CAM. The group is not a second model.
