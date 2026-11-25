@@ -17,3 +17,6 @@ results/mpl/
 
 # Held-out preview images exported from the datasets
 examples/
+
+# Classroom copy of the notebook with every output, including the held-out demo images
+deliverables/BIL458_CancerAI_Experiments.ipynb
